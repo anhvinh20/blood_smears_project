@@ -1,0 +1,49 @@
+<!-- templates/components/stage1_results.html -->
+
+<div id="stage1Results" style="display: none;">
+    <div class="stage-header">
+        <h3 class="text-center mb-0">
+            <i class="bi bi-1-circle"></i> Giai đoạn 1: Phát hiện Healthy/Unhealthy
+        </h3>
+    </div>
+    
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Tổng số tế bào</h5>
+                    <h2 class="text-primary" id="stage1Total">0</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-success">Healthy</h5>
+                    <h2 class="text-success" id="stage1Healthy">0</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-danger">Unhealthy</h5>
+                    <h2 class="text-danger" id="stage1Unhealthy">0</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card mb-5" id="stage1ImageContainer">
+        <div class="card-body text-center">
+            <img id="stage1Image" class="img-fluid" alt="Kết quả giai đoạn 1">
+        </div>
+    </div>
+</div>
+
+<!-- Stage divider -->
+<div class="stage-divider" id="stageDivider" style="display: none;">
+    <hr>
+    <i class="bi bi-arrow-down-circle text-primary" style="font-size: 2rem;"></i>
+    <hr>
+</div>

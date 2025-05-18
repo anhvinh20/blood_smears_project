@@ -1,0 +1,95 @@
+<!-- templates/components/stage2_results.html -->
+
+<div id="stage2Results" style="display: none;">
+    <div class="stage-header">
+        <h3 class="text-center mb-0">
+            <i class="bi bi-2-circle"></i> Giai đoạn 2: Phân loại chi tiết
+        </h3>
+    </div>
+    
+    <!-- Summary Cards -->
+    <div class="row mb-4" id="summaryCards">
+        <div class="col-md-6 col-lg-4" id="detectionTotalCard">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Tổng số tế bào (Detection)</h5>
+                    <h2 class="text-primary" id="totalCells">0</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4" id="gtTotalCard" style="display: none;">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Tổng số tế bào (Ground Truth)</h5>
+                    <h2 class="text-success" id="gtTotalCells">0</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4" id="metricsCard" style="display: none;">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Metrics</h5>
+                    <div id="metricsContent"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cell Counts Comparison -->
+    <div class="row mb-4" id="countsRow">
+        <div class="col-md-6" id="detectionCountsCol">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5><i class="bi bi-list-check"></i> Result Detection</h5>
+                </div>
+                <div class="card-body">
+                    <div id="cellCountsTable"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6" id="gtCountsCard" style="display: none;">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h5><i class="bi bi-check-circle"></i> Ground Truth</h5>
+                </div>
+                <div class="card-body">
+                    <div id="gtCountsTable"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Images -->
+    <div class="row mb-4" id="imagesRow">
+        <div class="col-md-6" id="detectionImageCol">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5><i class="bi bi-image"></i> Result Detection</h5>
+                </div>
+                <div class="card-body text-center">
+                    <img id="resultImage" class="img-fluid" alt="Kết quả phân tích">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6" id="gtImageCard" style="display: none;">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h5><i class="bi bi-image"></i> Ground Truth</h5>
+                </div>
+                <div class="card-body text-center">
+                    <img id="gtImage" class="img-fluid" alt="Ground Truth">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="text-center">
+        <button onclick="resetForm()" class="btn btn-secondary btn-lg">
+            <i class="bi bi-arrow-repeat"></i> Phân tích ảnh mới
+        </button>
+        <button onclick="showDetailResults()" class="btn btn-info btn-lg ms-3" id="detailBtn" style="display: none;">
+            <i class="bi bi-bar-chart"></i> Chi tiết kết quả
+        </button>
+    </div>
+</div>

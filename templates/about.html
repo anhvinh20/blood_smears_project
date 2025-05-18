@@ -1,0 +1,249 @@
+<!-- template/about.html -->
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Smears </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <i class="bi bi-microscope"></i> Blood Smears
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="bi bi-house"></i> Trang chủ
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/about">
+                            <i class="bi bi-info-circle"></i> Giới thiệu
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="text-center mb-5">
+                    <i class="bi bi-info-circle"></i> Về hệ thống
+                </h1>
+
+                <!-- System Overview -->
+                <div class="card mb-5">
+                    <div class="card-header bg-primary text-white">
+                        <h4><i class="bi bi-cpu"></i> Tổng quan hệ thống</h4>
+                    </div>
+                    <div class="card-body">
+                        <p>
+                            Hệ thống phân tích tế bào máu tự động sử dụng kết hợp các mô hình deep learning tiên tiến để phát hiện và phân loại các loại tế bào máu khác nhau.
+                        </p>
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <h5><i class="bi bi-box"></i> Phát hiện đối tượng</h5>
+                                <ul>
+                                    <li>Mô hình: YOLOv11s</li>
+                                    <li>Nhiệm vụ: Phát hiện vị trí các tế bào máu trong ảnh</li>
+                                    <li>Phân biệt tế bào healthy và unhealthy</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5><i class="bi bi-layers"></i> Phân loại tế bào</h5>
+                                <ul>
+                                    <li>Mô hình: EfficientNet-B0</li>
+                                    <li>Nhiệm vụ: Phân loại chi tiết các tế bào unhealthy</li>
+                                    <li>6 lớp: TJ, TA, S, G, Others, Diff</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cell Types -->
+                <div class="card mb-5">
+                    <div class="card-header bg-success text-white">
+                        <h4><i class="bi bi-clipboard-data"></i> Các loại tế bào máu</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>Tế bào bình thường</h5>
+                                <ul>
+                                    <li><span class="badge bg-success">Healthy</span></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Tế bào bất thường</h5>
+                                <ul>
+                                    <li><span class="badge bg-info">TJ</span></li>
+                                    <li><span class="badge bg-secondary">TA</span></li>
+                                    <!--<li><span class="badge bg-yellow text-dark">S</span> - Sickle cells</li>   ghi chú bên cạnh  -->
+                                    <li><span class="badge bg-warning text-dark">S</span></li>
+                                    <li><span class="badge bg-danger">G</span></li>
+                                    <li><span class="badge bg-dark text-white">Others</span></li>
+                                    <li><span class="badge bg-primary">Diff</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Features -->
+                <div class="card mb-5">
+                    <div class="card-header bg-info text-white">
+                        <h4><i class="bi bi-star"></i> Tính năng</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="text-center mb-4">
+                                    <i class="bi bi-upload display-4 text-primary"></i>
+                                    <h5 class="mt-2">Upload ảnh</h5>
+                                    <p>Hỗ trợ tất cả định dạng ảnh phổ biến</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center mb-4">
+                                    <i class="bi bi-robot display-4 text-success"></i>
+                                    <h5 class="mt-2">AI tự động</h5>
+                                    <p>Phân tích tự động bằng mô hình deep learning</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center mb-4">
+                                    <i class="bi bi-graph-up display-4 text-info"></i>
+                                    <h5 class="mt-2">So sánh GT</h5>
+                                    <p>So sánh với ground truth, tính metrics</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- How to Use -->
+                <div class="card mb-5">
+                    <div class="card-header bg-warning text-dark">
+                        <h4><i class="bi bi-question-circle"></i> Hướng dẫn sử dụng</h4>
+                    </div>
+                    <div class="card-body">
+                        <ol>
+                            <li class="mb-2">
+                                <strong>Upload ảnh tế bào máu:</strong> Chọn file ảnh từ máy tính của bạn
+                            </li>
+                            <li class="mb-2">
+                                <strong>Upload Ground Truth: </strong> Nếu có file label YOLO format (.txt), bạn có thể upload để so sánh kết quả
+                            </li>
+                            <li class="mb-2">
+                                <strong>Nhấn nút Phân tích:</strong> Hệ thống sẽ tự động xử lý và trả về kết quả
+                            </li>
+                            <li class="mb-2">
+                                <strong>Xem kết quả:</strong> 
+                                <ul>
+                                    <li>Số lượng và tỷ lệ từng loại tế bào</li>
+                                    <li>Hình ảnh với bounding boxes</li>
+                                    <li>So sánh với ground truth (nếu có)</li>
+                                    <li>Các metrics đánh giá (Precision, Recall, F1)</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Ground Truth Format -->
+                <div class="card mb-5">
+                    <div class="card-header bg-secondary text-white">
+                        <h4><i class="bi bi-file-text"></i> Format file Ground Truth</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5>Định dạng YOLO Label</h5>
+                        <p>File label cần tuân theo định dạng YOLO với mỗi dòng chứa thông tin một bounding box:</p>
+                        <pre class="bg-light p-3">
+class_id center_x center_y width height
+</pre>
+                        <p>Trong đó:</p>
+                        <ul>
+                            <li><strong>class_id:</strong> ID của class theo format </li>
+                            <ul>
+                                <li>0: TJ</li>
+                                <li>1: TA </li>
+                                <li>2: S </li>
+                                <li>3: G </li>
+                                <li>4: Healthy</li>
+                                <li>5: Others</li>
+                                <li>6: Diff </li>
+                            </ul>
+                            <li><strong>center_x, center_y:</strong> Tọa độ tâm của box (chuẩn hóa 0-1)</li>
+                            <li><strong>width, height:</strong> Kích thước của box (chuẩn hóa 0-1)</li>
+                        </ul>
+                        
+                        <h5 class="mt-4">Ví dụ:</h5>
+                        <pre class="bg-light p-3">
+4 0.512 0.487 0.154 0.132    # Healthy cell
+0 0.234 0.765 0.098 0.112    # TJ cell
+3 0.678 0.345 0.123 0.145    # G cell
+</pre>
+                    </div>
+                </div>
+
+                <!-- Technical Details -->
+                <div class="card mb-5">
+                    <div class="card-header bg-dark text-white">
+                        <h4><i class="bi bi-gear"></i> Chi tiết kỹ thuật</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5>Kiến trúc hệ thống</h5>
+                        <ul>
+                            <li><strong>Backend:</strong> Flask (Python)</li>
+                            <li><strong>Frontend:</strong> HTML, CSS, JavaScript, Bootstrap 5</li>
+                            <li><strong>Deep Learning:</strong> PyTorch, Ultralytics YOLO</li>
+                            <li><strong>Image Processing:</strong> OpenCV, Pillow</li>
+                        </ul>
+                        
+                        <h5 class="mt-4">Quy trình xử lý</h5>
+                        <ol>
+                            <li>YOLO phát hiện tất cả các tế bào trong ảnh</li>
+                            <li>Phân loại sơ bộ: Healthy và Unhealthy</li>
+                            <li>Với các tế bào Unhealthy, sử dụng EfficientNet để phân loại chi tiết</li>
+                            <li>Mapping giữa EfficientNet classes và data.yaml indices</li>
+                            <li>So sánh với Ground Truth (nếu có) và tính metrics</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Contact -->
+                <div class="card">
+                    <div class="card-header bg-secondary text-white">
+                        <h4><i class="bi bi-envelope"></i> Liên hệ</h4>
+                    </div>
+                    <div class="card-body text-center">
+                        <p>Để biết thêm thông tin hoặc báo cáo lỗi, vui lòng liên hệ:</p>
+                        <p class="lead">
+                            <i class="bi bi-github"></i> GitHub: anhvinh20
+                            <br>
+                            <i class="bi bi-envelope"></i> Email: nguyenanhvinh52@gmail.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

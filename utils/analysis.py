@@ -114,14 +114,14 @@ class Analyzer:
                 if crop.size == 0:
                     continue
                 
-                # Phân loại bằng EfficientNet
+                # Phân loại bằng ConvNext_Tiny
                 pred_idx = self.image_processor.classify_cell(
                     crop, classification_model, device
                 )
                 
-                # Map từ EfficientNet prediction sang data.yaml class
-                if pred_idx in AppConfig.EFFICIENTNET_TO_YAML:
-                    yaml_idx = AppConfig.EFFICIENTNET_TO_YAML[pred_idx]
+                # Map từ ConvNext_Tiny prediction sang data.yaml class
+                if pred_idx in AppConfig.CONVNEXTTINY_TO_YAML:
+                    yaml_idx = AppConfig.CONVNEXTTINY_TO_YAML[pred_idx]
                     class_name = data_classes[yaml_idx]
                     pred_classes.append(yaml_idx)
                 else:

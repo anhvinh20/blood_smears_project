@@ -66,7 +66,7 @@
                             <div class="col-md-6">
                                 <h5><i class="bi bi-layers"></i> Phân loại tế bào</h5>
                                 <ul>
-                                    <li>Mô hình: EfficientNet-B0</li>
+                                    <li>Mô hình: ConvNext_Tiny</li>
                                     <li>Nhiệm vụ: Phân loại chi tiết các tế bào unhealthy</li>
                                     <li>6 lớp: TJ, TA, S, G, Others, Diff</li>
                                 </ul>
@@ -219,8 +219,8 @@ class_id center_x center_y width height
                         <ol>
                             <li>YOLO phát hiện tất cả các tế bào trong ảnh</li>
                             <li>Phân loại sơ bộ: Healthy và Unhealthy</li>
-                            <li>Với các tế bào Unhealthy, sử dụng EfficientNet để phân loại chi tiết</li>
-                            <li>Mapping giữa EfficientNet classes và data.yaml indices</li>
+                            <li>Với các tế bào Unhealthy, sử dụng ConvNext_Tiny để phân loại chi tiết</li>
+                            <li>Mapping giữa ConvNext_Tiny classes và data.yaml indices</li>
                             <li>So sánh với Ground Truth (nếu có) và tính metrics</li>
                         </ol>
                     </div>

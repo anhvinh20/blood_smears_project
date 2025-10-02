@@ -10,15 +10,15 @@ class AppConfig:
     MAX_CONTENT_LENGTH = 16 * 1024 * 1024  # 16MB max
     
     # Đường dẫn models
-    YOLO_MODEL_PATH = 'models_data/yolov11s_best.pt'
-    EFFICIENTNET_MODEL_PATH = 'models_data/efficientnetb0_best.pt'
+    YOLO_MODEL_PATH = 'models_data/yolov11_best_final.pt'
+    CONVNEXTTINY_MODEL_PATH = 'models_data/convnext_tiny_6class.pt'
     DATA_YAML_PATH = 'models_data/data.yaml'
     
     # Các class cho phân loại
-    EFFICIENTNET_CLASSES = ['Diff', 'G', 'Others', 'S', 'TA', 'TJ']
+    CONVNEXTTINY_CLASSES = ['Diff', 'G', 'Others', 'S', 'TA', 'TJ']
     
-    # Mapping giữa EfficientNet và data.yaml
-    EFFICIENTNET_TO_YAML = {
+    # Mapping giữa CONVNEXTTINY và data.yaml
+    CONVNEXTTINY_TO_YAML = {
         0: 6,  # Diff -> data.yaml index 6
         1: 3,  # G -> data.yaml index 3
         2: 5,  # Others -> data.yaml index 5

@@ -17,7 +17,7 @@ class ModelsManager:
         self.device = None
         
     def load_models(self):
-        """Load YOLO và EfficientNet models"""
+        """Load YOLO và ConvNext_Tiny models"""
         try:
             # Cấu hình device
             self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -26,19 +26,19 @@ class ModelsManager:
             # Load model phát hiện (YOLO)
             self.detection_model = YOLO(AppConfig.YOLO_MODEL_PATH)
             
-            # Load model phân loại (EfficientNet)
-            checkpoint = torch.load(AppConfig.EFFICIENTNET_MODEL_PATH, 
+            # Load model phân loại (CONVNEXTTINY)
+            checkpoint = torch.load(AppConfig.CONVNEXTTINY_MODEL_PATH, 
                                   map_location=self.device)
             
             # Lấy thông tin class từ checkpoint
-            self.model_classes = checkpoint.get('classes', AppConfig.EFFICIENTNET_CLASSES)
+            self.model_classes = checkpoint.get('classes', AppConfig.CONVNEXTTINY_CLASSES)
             print(f"Model classes: {self.model_classes}")
             
-            # Tạo EfficientNet B0 model
-            self.classification_model = models.efficientnet_b0(pretrained=False)
-            num_ftrs = self.classification_model.classifier[1].in_features
-            self.classification_model.classifier[1] = nn.Linear(num_ftrs, len(self.model_classes))
-            
+            # Tạo CONVNEXTTINY model
+            self.classification_model = models.convnext_tiny(pretrained=False)
+            num_ftrs = self.classification_model.classifier[-1].in_features
+            self.classification_model.classifier[-1] = nn.Linear(num_ftrs, len(self.model_classes))
+
             # Load trained weights
             self.classification_model.load_state_dict(checkpoint['model_state_dict'])
             self.classification_model.to(self.device)
@@ -66,7 +66,7 @@ class ModelsManager:
         return self.detection_model
     
     def get_classification_model(self):
-        """Lấy model phân loại EfficientNet"""
+        """Lấy model phân loại CONVNEXTTINY"""
         return self.classification_model
     
     def get_device(self):

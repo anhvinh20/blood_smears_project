@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  bloodsmears:
+    build: .
+    container_name: bloodsmears_app
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
